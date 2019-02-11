@@ -1,35 +1,35 @@
 "use strict";
 
 let cells = []
+let sideLength = 800
+let numCells = 8
+let subCells = 3
 
 function setup() {
-	createCanvas(600, 600);
-	background(0); 
-  noStroke(); 
+	createCanvas(sideLength, sideLength)
+	background(0)
+	noLoop()
 
-  var gridSize = 100
+  let gridSize = sideLength / numCells
 
-  for (var x = gridSize; x <= width; x += gridSize) {
-    for (var y = gridSize; y <= height; y += gridSize) {
-			let dx = floor(random(-1, 2))
-			let dy = floor(random(-1, 2))
-			let cell = new Cell(x, y, dx, dy, gridSize)
-			cells.push(cell)			
-			// ellipse(x - 50, y - 50, 20)
-			stroke(255, 0, 255)
-			line(x, 0, x, height)
-			line(0, y, width, y)
+  for (let x = gridSize; x <= width; x += gridSize) {
+    for (let y = gridSize; y <= height; y += gridSize) {
+			let cell = new Cell(x, y, gridSize, subCells)
+			cells.push(cell)
+			grid(x, y)
     }
   }
-
 }
 
 function draw() {
 	for (let cell of cells) {
-		cell.show()
+		//cell.show()
 	}
-	if (frameCount % 600 == 0) {
-		cells = []
-		setup()
-	}
+	cells[9].show()
+}
+
+function grid(x, y) {
+	stroke(255, 0, 255)
+	line(x, 0, x, height)
+	line(0, y, width, y)
 }
