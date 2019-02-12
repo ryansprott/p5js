@@ -1,8 +1,8 @@
 "use strict";
 
 let cells = []
-let sideLength = 800
-let numCells = 8
+let sideLength = 600
+let numCells = 3
 let subCells = 3
 
 function setup() {
@@ -16,19 +16,18 @@ function setup() {
     for (let y = gridSize; y <= height; y += gridSize) {
 			let cell = new Cell(x, y, gridSize, subCells)
 			cells.push(cell)
-			grid(x, y)
+			drawGrid(x, y)
     }
   }
 }
 
 function draw() {
 	for (let cell of cells) {
-		//cell.show()
+		cell.show()
 	}
-	cells[9].show()
 }
 
-function grid(x, y) {
+function drawGrid(x, y) {
 	stroke(255, 0, 255)
 	line(x, 0, x, height)
 	line(0, y, width, y)
