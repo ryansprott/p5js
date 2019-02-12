@@ -4,6 +4,7 @@ class Cell {
     this.y        = y
     this.size     = size
     this.subcells = subcells
+    this.subunit  = size / subcells
   }
 
   show() {
@@ -15,22 +16,21 @@ class Cell {
   }
 
   subgrid(i, j) {
-    let subdiv = this.size / this.subcells
-    let di = subdiv * i
-    let dj = subdiv * j
+    let di = this.subunit * i
+    let dj = this.subunit * j
     let dx = this.x - di
     let dy = this.y - dj
     this.drawPoints(dx, dy)
-    this.drawLines(dx, dy, subdiv)
-    this.drawCircles(dx, dy, subdiv)
-    this.drawCircles(dx, dy, subdiv, true)
+    this.drawLines(dx, dy)
+    this.drawCircles(dx, dy)
+    this.drawCircles(dx, dy, true)
   }
 
-  drawLines(dx, dy, subdiv) {
+  drawLines(dx, dy) {
     strokeWeight(0.3)
     stroke(255)
-    line(dx, dy, dx + subdiv, dy)
-    line(dx, dy, dx, dy + subdiv)
+    line(dx, dy, dx + this.subunit, dy)
+    line(dx, dy, dx, dy + this.subunit)
   }
 
   drawPoints(dx, dy) {
@@ -39,16 +39,16 @@ class Cell {
     point(dx, dy)
   }
 
-  drawCircles(dx, dy, subdiv, corner = false) {
+  drawCircles(dx, dy, corner = false) {
     strokeWeight(0.4)
     noFill()
     if (corner) {
-      ellipseMode(CORNER)
       stroke(0, 100, 255)
+      ellipseMode(CORNER)
     } else {
-      stroke(0, 255, 0)
+      stroke(0, 255, 100)
       ellipseMode(CENTER)
     }
-    ellipse(dx, dy, subdiv, subdiv)
+    ellipse(dx, dy, this.subunit, this.subunit)
   }
 }
