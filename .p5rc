@@ -6,6 +6,15 @@
     "grid_test",
     "green_rain",
     "recur",
+    "particles",
+    "logspiral",
+    "water",
+    "sandpile",
+    "mandel",
+    "noise",
+    "avoid",
+    "avoid2",
+    "shapes",
     "nes_colors"
   ]
 }
