@@ -15,6 +15,7 @@
     "avoid",
     "avoid2",
     "shapes",
-    "nes_colors"
+    "nes_colors",
+    "invaders"
   ]
 }

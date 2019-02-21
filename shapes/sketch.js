@@ -2,6 +2,7 @@ function setup() {
 	createCanvas(windowWidth, windowHeight);
 	this.radius = 50
 	this.increment = 15
+	noLoop()
 }
 
 function draw() {
@@ -38,8 +39,6 @@ function draw() {
 		// rect(x, y, 10, 10)
 		spinner(x, y, HALF_PI+(radians(i)))
 	}
-
-	noLoop()
 }
 
 function spinner(xpos, ypos, a) {

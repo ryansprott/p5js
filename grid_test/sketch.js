@@ -8,17 +8,15 @@ let subCells = 3
 function setup() {
 	createCanvas(sideLength, sideLength)
 	background(0)
-	noLoop()
-
-  let gridSize = sideLength / numCells
-
-  for (let x = gridSize; x <= width; x += gridSize) {
-    for (let y = gridSize; y <= height; y += gridSize) {
-			let cell = new Cell(x, y, gridSize, subCells)
+  let unit = sideLength / numCells
+  for (let x = unit; x <= width + unit; x += unit) {
+    for (let y = unit; y <= height + unit; y += unit) {
+			let cell = new Cell(x, y, unit, subCells)
 			cells.push(cell)
-			drawGrid(x, y)
+			drawMainGrid(x, y)
     }
-  }
+	}
+	noLoop()
 }
 
 function draw() {
@@ -27,8 +25,9 @@ function draw() {
 	}
 }
 
-function drawGrid(x, y) {
-	stroke(255, 0, 255)
+function drawMainGrid(x, y) {
+	strokeWeight(2)
+	stroke(248, 184, 0)
 	line(x, 0, x, height)
 	line(0, y, width, y)
 }
