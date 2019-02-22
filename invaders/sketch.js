@@ -57,20 +57,20 @@ function dec2bin(n) {
 	var i = 0
 	var bin = []
 	var str = ""
-	
-	while (n > 0) { 
-		bin[i] = Math.floor(n % 2); 
-		n = Math.floor(n / 2); 
-		i++; 
+
+	while (n > 0) {
+		bin[i] = Math.floor(n % 2)
+		n = Math.floor(n / 2)
+		i++
 	}
 
 	while (bin.length < 15) {
 		bin.push(0)
 	}
-	
+
 	for (var j = bin.length - 1; j >= 0; j--) {
 		str += bin[j]
 	}
-	
+
 	return str
 }

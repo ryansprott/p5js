@@ -1,5 +1,5 @@
 function setup() {
-	createCanvas(windowWidth, windowHeight);
+	createCanvas(windowWidth, windowHeight)
 	this.radius = 50
 	this.increment = 15
 	noLoop()
@@ -13,9 +13,9 @@ function draw() {
 	stroke(255, 0, 0)
 	fill(255, 0, 0)
 	for (let i = 0; i < 360; i += this.increment) {
-		let angle = radians(i);
-		let x =  (cos(angle) * this.radius*1.5);
-		let y =  (sin(angle) * this.radius*1.5);
+		let angle = radians(i)
+		let x =  (cos(angle) * this.radius*1.5)
+		let y =  (sin(angle) * this.radius*1.5)
 		// rect(x, y, 10, 10)
 		spinner(x, y, HALF_PI+(radians(i)))
 	  }
@@ -23,9 +23,9 @@ function draw() {
 	stroke(0, 255, 255)
 	fill(0, 255, 255)
 	for (let i = 0; i < 360; i += this.increment * 2) {
-		let angle = radians(i);
-		let x =  (cos(angle) * this.radius);
-		let y =  (sin(angle) * this.radius);
+		let angle = radians(i)
+		let x =  (cos(angle) * this.radius)
+		let y =  (sin(angle) * this.radius)
 		//rect(x, y, 10, 10)
 		spinner(x, y, HALF_PI+(radians(i)))
 	}
@@ -33,9 +33,9 @@ function draw() {
 	stroke(0, 255, 0)
 	fill(0, 255, 0)
 	for (let i = 0; i < 360; i += this.increment * 4) {
-		let angle = radians(i);
-		let x =  (cos(angle) * this.radius/2);
-		let y =  (sin(angle) * this.radius/2);
+		let angle = radians(i)
+		let x =  (cos(angle) * this.radius/2)
+		let y =  (sin(angle) * this.radius/2)
 		// rect(x, y, 10, 10)
 		spinner(x, y, HALF_PI+(radians(i)))
 	}
