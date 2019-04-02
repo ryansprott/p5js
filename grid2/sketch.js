@@ -2,7 +2,7 @@
 
 let cells = []
 let sideLength = 900
-let numCells = 3
+let numCells = 12
 let subCells = 3
 
 function setup() {
@@ -13,13 +13,14 @@ function setup() {
     for (let y = unit; y <= height + unit; y += unit) {
       let cell = new Cell(x, y, unit, subCells)
       cells.push(cell)
-      drawMainGrid(x, y)
+      // drawMainGrid(x, y)
     }
   }
-  noLoop()
+  // noLoop()
 }
 
 function draw() {
+  background(0)
   for (let cell of cells) {
     cell.show()
   }

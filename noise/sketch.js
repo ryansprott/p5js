@@ -2,7 +2,7 @@ let tx = 0.01
 let ty = 10000
 
 function setup() {
-	createCanvas(windowWidth, windowHeight)
+	createCanvas(900, 900)
 }
 
 function draw() {
@@ -12,9 +12,11 @@ function draw() {
 	let y = map(ny, 0, 1, 0, height)
 
 	background(255)
+	strokeWeight(2)
 	stroke(255, 0, 0)
-	fill(0, 0, 255)
-	ellipse(x, y, 16, 16)
+	line(x, 0, y, height)
+	stroke(0, 0, 255)
+	line(0, y, height, x)
 
 	tx += 0.001
 	ty += 0.001
