@@ -24,7 +24,8 @@ class Subcell {
     let fil = (rnd >= 0.5) ? 0 : 255
     fill(fil)
     noStroke()
-    rect(this.x, this.y, this.size, this.size)
+    // rect(this.x, this.y, this.size, this.size / 2)
+    rect(this.x, this.y, this.size / 2, this.size)
   }
 
   drawPoint(corner = false) {
