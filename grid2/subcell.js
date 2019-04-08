@@ -38,9 +38,18 @@ class Subcell {
 
   drawLines() {
     strokeWeight(1)
+    // NW -> NE
     stroke(124, 56, 124)
     line(this.x, this.y, this.x + this.size, this.y)
+    // NW -> SW
+    stroke(255, 0, 0)
     line(this.x, this.y, this.x, this.y + this.size)
+    // NW -> SE
+    stroke(0, 248, 0)
+    line(this.x, this.y, this.x + this.size, this.y + this.size)
+    // SW -> NE
+    stroke(255)
+    line(this.x, this.y + this.size, this.x + this.size, this.y)
   }
 
   drawCircle(corner = false) {
