@@ -17,6 +17,7 @@
     "shapes",
     "nes_colors",
     "invaders",
-    "grid2"
+    "grid2",
+    "conway"
   ]
 }
