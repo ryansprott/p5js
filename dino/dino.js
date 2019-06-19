@@ -2,7 +2,7 @@ class Dino {
     constructor() {
         this.r  = 50
         this.x  = 75
-        this.y  = height - this.r * 0.5
+        this.y  = height - this.r
         this.vy = 0
         this.g  = 3
         this.fl = 0

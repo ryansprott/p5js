@@ -2,7 +2,7 @@ let dino
 let cacti = []
 
 function setup() {
-	createCanvas(600, 600);
+	createCanvas(1200, 600);
 	dino = new Dino()
 }
 
