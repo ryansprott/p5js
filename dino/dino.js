@@ -27,7 +27,7 @@ class Dino {
     hit(cactus) {
         let d  = dist(this.x, this.y, cactus.x, cactus.y)
         let r1 = this.r * 0.5
-        let r2 = cactus.r * 0.5
+        let r2 = cactus.w * 0.5
         return d < r1 + r2
     }
 }

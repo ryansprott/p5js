@@ -23,7 +23,7 @@ function draw() {
 		cactus.move()
 		if (dino.hit(cactus)) {
 			dino.fl = 127
-			// noLoop()
+			noLoop()
 		} else {
 			dino.fl = 255
 		}
