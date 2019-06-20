@@ -20,17 +20,20 @@ class Cell {
   drawSubGrid(i, j) {
     let dx = this.x - (this.subunit * i)
     let dy = this.y - (this.subunit * j)
-    this.drawPoints(dx, dy)
+    // this.drawPoints(dx, dy)
     this.drawLines(dx, dy)
-    this.drawCircles(dx, dy) // blue
-    this.drawCircles(dx, dy, true) // green
+    // this.drawCircles(dx, dy) // blue
+    // this.drawCircles(dx, dy, true) // green
   }
 
   drawLines(dx, dy) {
     strokeWeight(1)
     stroke(124, 124, 124)
-    line(dx, dy, dx + this.subunit, dy)
-    line(dx, dy, dx, dy + this.subunit)
+    // line(dx, dy, dx + this.subunit, dy) // W -> E
+    // line(dx, dy, dx, dy + this.subunit) // N -> S
+    // line(dy, dx, dy + this.subunit, dx + this.subunit) // NW -> SE
+    // line(dx, dy + this.subunit, dx + this.subunit, dy) // SW -> NE
+    line(dy, dx, dx + this.subunit, dy + this.subunit)
   }
 
   drawPoints(dx, dy) {
