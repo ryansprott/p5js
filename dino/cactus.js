@@ -10,6 +10,7 @@ class Cactus {
     show() {
         noStroke()
         fill(255)
+        ellipseMode(CORNER)
         ellipse(this.x, this.y, this.width, this.r)
     }
 
