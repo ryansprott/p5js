@@ -4,16 +4,11 @@ class Dino {
         this.x = 75
         this.y = height - this.r
         this.gravity = 3
-        this.fl = 0
         this.velocity = 0
 
-        this.score = 0;
-        this.fitness = 0;
-        if (brain) {
-          this.brain = brain.copy();
-        } else {
-          this.brain = new NeuralNetwork(3, 8, 2);
-        }
+        this.score = 0
+        this.fitness = 0
+        this.brain = brain ? brain.copy() : new NeuralNetwork(3, 6, 2)
     }
 
     show() {
@@ -24,11 +19,11 @@ class Dino {
     }
 
     mutate() {
-        this.brain.mutate(0.1);
+        this.brain.mutate(0.1)
     }
 
     dispose() {
-        this.brain.dispose();
+        this.brain.dispose()
     }
 
     think(cacti) {
