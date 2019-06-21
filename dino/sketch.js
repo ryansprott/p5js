@@ -3,6 +3,7 @@ let savedDinos = []
 let cacti = []
 let level = 10
 const TOTAL = 250
+let gens = 1
 
 function setup() {
 	createCanvas(1200, 600);
@@ -18,10 +19,19 @@ function keyPressed() {
 	}
 }
 
+function canAddCactus() {
+	if (cacti.length === 0) {
+		return true
+	} else if (cacti.length === 1 && cacti[0].x < width / 2) {
+		return true
+	}
+	return false
+}
+
 function draw() {
 	background(0)
 	cacti = cacti.filter(cactus => cactus.x > cactus.r * -1)
-	if (random(1) < 0.05 && cacti.length === 0) {
+	if (random(1) < 0.05 && canAddCactus()) {
 		cacti.push(new Cactus(random(1), level))
 		level++
 	}
@@ -30,17 +40,25 @@ function draw() {
 		cactus.move()
 		for (let dino of dinos) {
 			if (dino.hit(cactus)) {
+				savedDinos.push(dino)
 				dinos = dinos.filter(d => d !== dino)
 			}
-			dino.show()
-			dino.think(cacti)
-			dino.move()
 		}
+	}
+	for (let dino of dinos) {
+		dino.think(cacti)
+		dino.move()
+		dino.show()
+	}
+	if (dinos.length === 0) {
+		cacti = []
+		gens++
+		console.log(`generation ${gens} level ${level} hi score ${savedDinos[savedDinos.length-1].score}`)
+		nextGeneration()
 	}
 }
 
 function nextGeneration() {
-	console.log('next generation');
 	calculateFitness();
 	for (let i = 0; i < TOTAL; i++) {
 		dinos[i] = pickOne();
@@ -60,7 +78,7 @@ function pickOne() {
 	}
 	index--;
 	let dino = savedDinos[index];
-	let child = new Bird(dino.brain);
+	let child = new Dino(dino.brain);
 	child.mutate();
 	return child;
 }
