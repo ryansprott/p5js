@@ -1,19 +1,19 @@
 class Cactus {
-    constructor(seed) {
+    constructor(seed, vel) {
         this.r = 50
-        this.w = seed > 0.5 ? this.r : this.r * 2
+        this.width = seed > 0.5 ? this.r : this.r * 2
         this.x = width
         this.y = height - this.r
-        this.v = 10
+        this.velocity = vel
     }
 
     show() {
         noStroke()
         fill(255)
-        ellipse(this.x, this.y, this.w, this.r)
+        ellipse(this.x, this.y, this.width, this.r)
     }
 
     move() {
-        this.x -= this.v
+        this.x -= this.velocity
     }
 }

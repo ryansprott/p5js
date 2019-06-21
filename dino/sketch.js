@@ -1,5 +1,6 @@
 let dino
 let cacti = []
+let level = 10
 
 function setup() {
 	createCanvas(1200, 600);
@@ -16,7 +17,8 @@ function draw() {
 	background(0)
 	cacti = cacti.filter(cactus => cactus.x > cactus.r * -1)
 	if (random(1) < 0.05 && cacti.length === 0) {
-		cacti.push(new Cactus(random(1)))
+		cacti.push(new Cactus(random(1), level))
+		level++
 	}
 	for (let cactus of cacti) {
 		cactus.show()
