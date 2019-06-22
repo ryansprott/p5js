@@ -2,20 +2,14 @@ let dinos = []
 let savedDinos = []
 let cacti = []
 let level = 20
-const TOTAL = 25
+const TOTAL = 250
 let gens = 1
 
 function setup() {
-	createCanvas(800, 600);
+	createCanvas(windowWidth - 60, windowHeight - 20);
 	tf.setBackend('cpu');
 	for (let i = 0; i < TOTAL; i++) {
 		dinos.push(new Dino())
-	}
-}
-
-function keyPressed() {
-	if (keyCode === 32) {
-		// dino.jump()
 	}
 }
 
@@ -40,6 +34,7 @@ function draw() {
 		cactus.move()
 		for (let dino of dinos) {
 			if (dino.hit(cactus)) {
+				cactus.col = color(255, 0, 0)
 				savedDinos.push(dino)
 				dinos = dinos.filter(d => d !== dino)
 			}

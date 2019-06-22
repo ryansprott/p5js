@@ -8,10 +8,11 @@ class Dino {
         this.score = 0
         this.fitness = 0
         this.brain = brain ? brain.copy() : new NeuralNetwork(7, 14, 2)
+        this.col = color(0, 255, 0)
     }
 
     show() {
-        noStroke()
+        stroke(this.col)
         fill(127, 100)
         ellipseMode(CORNER)
         ellipse(this.x, this.y, this.r, this.r)
@@ -56,6 +57,7 @@ class Dino {
         let d  = dist(this.x + this.r, this.y, cactus.x + cactus.width / 2, cactus.y)
         let r1 = this.r / 2
         let r2 = cactus.width / 2
+        // if  (d < r1 + r2) { background(255, 0, 0) }
         return d < r1 + r2
     }
 }

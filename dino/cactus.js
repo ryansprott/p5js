@@ -10,13 +10,14 @@ class Cactus {
         }
         this.x = width
         this.ys = [(height / 1.5) - this.r, (height / 1.25) - this.r, height - this.r]
-        this.y = this.ys[ceil(random(2))]
+        this.y = this.ys[floor(random(3))]
         this.velocity = vel
+        this.col = color(64, 100)
     }
 
     show() {
-        noStroke()
-        fill(255)
+        stroke(255, 0, 0)
+        fill(this.col)
         ellipseMode(CORNER)
         ellipse(this.x, this.y, this.width, this.r)
     }
