@@ -9,7 +9,8 @@ class Cactus {
             this.width = this.r * 2
         }
         this.x = width
-        this.y = height - this.r
+        this.ys = [(height / 1.5) - this.r, (height / 1.25) - this.r, height - this.r]
+        this.y = this.ys[ceil(random(2))]
         this.velocity = vel
     }
 
@@ -21,6 +22,6 @@ class Cactus {
     }
 
     move() {
-        this.x -= this.velocity * 0.5
+        this.x -= this.velocity * 0.4
     }
 }

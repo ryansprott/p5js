@@ -5,10 +5,9 @@ class Dino {
         this.y = height - this.r
         this.gravity = 3
         this.velocity = 0
-
         this.score = 0
         this.fitness = 0
-        this.brain = brain ? brain.copy() : new NeuralNetwork(3, 6, 2)
+        this.brain = brain ? brain.copy() : new NeuralNetwork(7, 14, 2)
     }
 
     show() {
@@ -30,7 +29,8 @@ class Dino {
         let closest = cacti[0] || new Cactus();
         let closestD = Infinity;
         for (let i = 0; i < cacti.length; i++) {
-          let d = cacti[i].x + cacti[i].width - this.x;
+        //   let d = cacti[i].x + cacti[i].width - this.x;
+        let d = cacti[i].x - this.x
           if (d < closestD && d > 0) {
             closest = cacti[i];
             closestD = d;
@@ -39,8 +39,12 @@ class Dino {
 
         let inputs = [];
         inputs[0] = this.y / height;
-        inputs[1] = closest.x / width;
-        inputs[2] = this.velocity / 10;
+        inputs[1] = this.x / width;
+        inputs[2] = closest.x / width;
+        inputs[3] = closest.y / height;
+        inputs[4] = this.velocity / 10;
+        inputs[5] = this.x - closest.x
+        inputs[6] = this.y - closest.y
         let output = this.brain.predict(inputs);
         if (output[0] > output[1]) {
           this.jump();
