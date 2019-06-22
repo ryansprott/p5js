@@ -4,9 +4,9 @@ class Cactus {
         if (seed > 0.0 && seed < 0.33) {
             this.width = this.r
         } else if (seed >= 0.33 && seed <= 0.66) {
-            this.width = this.r * 2
+            this.width = this.r * 1.5
         } else if (seed > 0.66) {
-            this.width = this.r * 3
+            this.width = this.r * 2
         }
         this.x = width
         this.y = height - this.r
@@ -21,6 +21,6 @@ class Cactus {
     }
 
     move() {
-        this.x -= this.velocity
+        this.x -= this.velocity * 0.5
     }
 }

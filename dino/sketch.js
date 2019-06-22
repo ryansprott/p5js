@@ -1,12 +1,12 @@
 let dinos = []
 let savedDinos = []
 let cacti = []
-let level = 10
-const TOTAL = 250
+let level = 20
+const TOTAL = 100
 let gens = 1
 
 function setup() {
-	createCanvas(1200, 600);
+	createCanvas(800, 600);
 	tf.setBackend('cpu');
 	for (let i = 0; i < TOTAL; i++) {
 		dinos.push(new Dino())

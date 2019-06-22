@@ -2,13 +2,14 @@ let arr, cols, rows
 let reso = 15
 
 function setup() {
-	createCanvas(windowWidth, windowHeight);
+	createCanvas(windowWidth, windowHeight - 20);
 	cols = floor(width / reso)
 	rows = floor(height / reso)
 	arr = randomArray(blankArray(cols, rows))
 }
 
 function draw() {
+	// frameRate(5)
 	step()
 
 	for (let x = 0; x < arr.length; x++) {
@@ -68,7 +69,7 @@ step = () => {
 			}
 		}
 	}
-	arr = next	
+	arr = next
 }
 
 blankArray = (cols, rows) => {
