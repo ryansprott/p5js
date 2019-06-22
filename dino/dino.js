@@ -50,14 +50,13 @@ class Dino {
     }
 
     jump() {
-        this.velocity = this.y === height - this.r ? -35 : this.velocity
+        this.velocity = this.y === height - this.r ? -50 : this.velocity
     }
 
     hit(cactus) {
         let d  = dist(this.x + this.r, this.y, cactus.x + cactus.width / 2, cactus.y)
         let r1 = this.r / 2
         let r2 = cactus.width / 2
-        // if  (d < r1 + r2) { background(255, 0, 0) }
         return d < r1 + r2
     }
 }

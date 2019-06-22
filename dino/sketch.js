@@ -2,7 +2,7 @@ let dinos = []
 let savedDinos = []
 let cacti = []
 let level = 20
-const TOTAL = 250
+const TOTAL = 10
 let gens = 1
 
 function setup() {
@@ -30,8 +30,8 @@ function draw() {
 		level++
 	}
 	for (let cactus of cacti) {
-		cactus.show()
 		cactus.move()
+		cactus.show()
 		for (let dino of dinos) {
 			if (dino.hit(cactus)) {
 				cactus.col = color(255, 0, 0)
@@ -54,6 +54,7 @@ function draw() {
 }
 
 function nextGeneration() {
+	background(255, 0, 0)
 	calculateFitness();
 	for (let i = 0; i < TOTAL; i++) {
 		dinos[i] = pickOne();
