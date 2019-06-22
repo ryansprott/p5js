@@ -2,13 +2,11 @@ let dinos = []
 let savedDinos = []
 let cacti = []
 let level = 20
-const TOTAL = 250
+const TOTAL = 25
 let gens = 1
-let slider
 
 function setup() {
 	createCanvas(800, 600);
-	slider = createSlider(1, 10, 1);
 	tf.setBackend('cpu');
 	for (let i = 0; i < TOTAL; i++) {
 		dinos.push(new Dino())
@@ -31,8 +29,6 @@ function canAddCactus() {
 }
 
 function draw() {
-	for (let n = 0; n < slider.value(); n++) {
-
 	background(0)
 	cacti = cacti.filter(cactus => cactus.x > cactus.r * -1)
 	if (random(1) < 0.05 && canAddCactus()) {
@@ -60,7 +56,6 @@ function draw() {
 		console.log(`generation ${gens} level ${level} hi score ${savedDinos[savedDinos.length-1].score}`)
 		nextGeneration()
 	}
-}
 }
 
 function nextGeneration() {

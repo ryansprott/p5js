@@ -27,24 +27,14 @@ class Dino {
 
     think(cacti) {
         let closest = cacti[0] || new Cactus();
-        let closestD = Infinity;
-        for (let i = 0; i < cacti.length; i++) {
-        //   let d = cacti[i].x + cacti[i].width - this.x;
-        let d = cacti[i].x - this.x
-          if (d < closestD && d > 0) {
-            closest = cacti[i];
-            closestD = d;
-          }
-        }
-
         let inputs = [];
         inputs[0] = this.y / height;
         inputs[1] = this.x / width;
         inputs[2] = closest.x / width;
         inputs[3] = closest.y / height;
         inputs[4] = this.velocity / 10;
-        inputs[5] = this.x - closest.x
-        inputs[6] = this.y - closest.y
+        inputs[5] = (this.x + this.r) - (closest.x - closest.width / 2)
+        inputs[6] = this.y - (closest.y + closest.r)
         let output = this.brain.predict(inputs);
         if (output[0] > output[1]) {
           this.jump();
@@ -63,7 +53,7 @@ class Dino {
     }
 
     hit(cactus) {
-        let d  = dist(this.x, this.y, cactus.x + cactus.width / 4, cactus.y)
+        let d  = dist(this.x + this.r, this.y, cactus.x + cactus.width / 2, cactus.y)
         let r1 = this.r / 2
         let r2 = cactus.width / 2
         return d < r1 + r2
