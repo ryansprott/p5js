@@ -8,12 +8,11 @@ class Dino {
         this.score = 0
         this.fitness = 0
         this.brain = brain ? brain.copy() : new NeuralNetwork(7, 14, 2)
-        this.col = color(0, 255, 0)
     }
 
     show() {
-        stroke(this.col)
-        fill(127, 100)
+        stroke(0, 255, 0)
+        fill(64, 100)
         ellipseMode(CORNER)
         ellipse(this.x, this.y, this.r, this.r)
     }
@@ -50,7 +49,7 @@ class Dino {
     }
 
     jump() {
-        this.velocity = this.y === height - this.r ? -50 : this.velocity
+        this.velocity = this.y === height - this.r ? -40 : this.velocity
     }
 
     hit(cactus) {

@@ -2,7 +2,7 @@ let dinos = []
 let savedDinos = []
 let cacti = []
 let level = 20
-const TOTAL = 10
+const TOTAL = 500
 let gens = 1
 
 function setup() {
@@ -24,11 +24,13 @@ function canAddCactus() {
 
 function draw() {
 	background(0)
+
 	cacti = cacti.filter(cactus => cactus.x > cactus.r * -1)
 	if (random(1) < 0.05 && canAddCactus()) {
 		cacti.push(new Cactus(random(1), level))
 		level++
 	}
+
 	for (let cactus of cacti) {
 		cactus.move()
 		cactus.show()
@@ -40,15 +42,17 @@ function draw() {
 			}
 		}
 	}
+
 	for (let dino of dinos) {
 		dino.think(cacti)
 		dino.move()
 		dino.show()
 	}
+
 	if (dinos.length === 0) {
 		cacti = []
-		gens++
-		console.log(`generation ${gens} level ${level}`)
+		// gens++
+		console.log(`gen ${gens++} level ${level}`)
 		nextGeneration()
 	}
 }

@@ -28,6 +28,6 @@ function draw() {
 function drawMainGrid(x, y) {
   strokeWeight(2)
   stroke(248, 184, 0) // yellow
-  // line(x, 0, x, height)
-  // line(0, y, width, y)
+    line(x, 0, x, height)
+    line(0, y, width, y)
 }
