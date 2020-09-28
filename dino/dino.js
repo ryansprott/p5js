@@ -1,6 +1,6 @@
 class Dino {
     constructor(brain) {
-        this.r = 50
+        this.r = 100
         this.x = 75
         this.y = height - this.r
         this.gravity = 3

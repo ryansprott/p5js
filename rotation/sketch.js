@@ -6,8 +6,8 @@ function setup() {
 }
 
 function draw() {
-	// translate(width/2, height/2)
-	translate(100, 100)
+	translate(width/2, height/2)
+	// translate(100, 100)
 	strokeWeight(1)
 
 	stroke(255, 0, 0)
@@ -18,7 +18,7 @@ function draw() {
 		let y =  (sin(angle) * this.radius*1.5)
 		// rect(x, y, 10, 10)
 		spinner(x, y, HALF_PI+(radians(i)))
-	  }
+	}
 
 	stroke(0, 255, 255)
 	fill(0, 255, 255)

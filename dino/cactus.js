@@ -9,7 +9,7 @@ class Cactus {
             this.width = this.r * 2
         }
         this.x = width
-        this.y = random(height - this.r, (height / 2) - this.r)
+        this.y = random(height - this.r, (height / 1.2) - this.r)
         this.velocity = vel
         this.col = color(64, 100)
     }

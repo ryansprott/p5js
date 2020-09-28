@@ -1,5 +1,5 @@
 function setup() {
-  createCanvas(1200, 600);
+  createCanvas(3000, 1200);
   this.numCircles = 1000
   this.frameDiv = 1
   this.circles = []

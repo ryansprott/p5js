@@ -1,7 +1,7 @@
 "use strict";
 
 let cells = []
-let sideLength = 900
+let sideLength = 1200
 let numCells = 3
 let subCells = 1
 

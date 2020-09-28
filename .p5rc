@@ -4,11 +4,12 @@
     "avoid",
     "avoid2",
     "conway",
+    "curvetest",
+    "diadem",
     "dino",
     "green_rain",
-    "grid_test",
+    "grid_example",
     "grid1",
-    "grid2",
     "invaders",
     "logspiral",
     "mandel",
@@ -16,10 +17,13 @@
     "noise",
     "particles",
     "recur",
+    "rotation",
     "sandpile",
-    "shapes",
+    "shapetest",
+    "sine",
     "sort_insertion",
     "sorts",
-    "water"
+    "water",
+    "squares"
   ]
 }
